@@ -1,0 +1,11 @@
+:root {
+    background-color: rgb(18, 11, 11);
+    color: white;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

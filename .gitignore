@@ -1,3 +1,5 @@
 
 01basicreact\node_modules\*
 01vitereact\node_modules\*
+*\node_modules\*
+02_counter\node_modules*
