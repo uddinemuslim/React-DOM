@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+:root {
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+}
+.main-div {
+    width: 80vw;
+}
