@@ -1,9 +1,15 @@
 import React from 'react'
 
-function Card() {
+function Card({username, btnTxt}) {
+
+    // const { username } = props
+    // console.log('Card props:', props)
+    // console.log('Card username:', username)
+
+
     return (
         <>
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-4 mt-4">
                 <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
                     {/* Image */}
                     <img
@@ -14,7 +20,7 @@ function Card() {
 
                     {/* Content */}
                     <div className="px-6 py-4">
-                        <div className="font-bold text-xl mb-2 text-gray-900">Wooden House</div>
+                        <div className="font-bold text-xl mb-2 text-gray-900">{username}</div>
                         <p className="text-gray-700 text-base">
                             A peaceful home surrounded by ancient trees, stone walls, and open meadows. Perfect for a quiet getaway.
                         </p>
@@ -23,7 +29,7 @@ function Card() {
                     {/* Actions */}
                     <div className="px-6 pt-0 pb-4">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Reserve Now
+                            {btnTxt || "DefaultBtnTxt"}
                         </button>
                     </div>
                 </div>

@@ -7,8 +7,6 @@ import Card from './components/Card.jsx'
 createRoot(document.getElementById('root'))
   .render(
     <>
-    <App />
-    <Card/>
-    <Card/>
+      <App />
     </>
   )
