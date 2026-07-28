@@ -16,3 +16,5 @@
 - React Router: For routing basics
 - Theme Toggler: For ContextAPI
 - Todo: For intermediate ContextAPI
+- Redux Toolkit: For Industry grade Context API
+- 
