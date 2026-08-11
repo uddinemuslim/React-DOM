@@ -1,30 +1,41 @@
-import { useState } from "react"
-import { addTodo } from "../features/todo/todoSlice"
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../features/todo/todoSlice';
 
-function AddTodo(){
+function AddTodo() {
+  const [input, setInput] = useState('');
+  const dispatch = useDispatch();
 
-    const [input, setInput] = useState("")
-    const addTodoHandler = (e) => {
-        e.preventDefault()
-        dispatch(addTodo)
-        setInput("")
+  const addTodoHandler = (e) => {
+    e.preventDefault();
+    const trimmed = input.trim();
+    if (!trimmed) return;
 
-    }
+    dispatch(addTodo(trimmed));
+    setInput('');
+  };
 
-
-    return (
-    <>
-    <form  className="flex"
-            onSubmit={addTodo(input)}>
-            <input
-                type="text"
-                placeholder="Write Todo..."
-                className="w-full border border-black/10 rounded-l-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
-            />
-            <button type="submit" className="rounded-r-lg px-3 py-1 bg-green-600 text-white shrink-0">
-                Add
-            </button>
-        </form>
-    </>
-    )
+  return (
+    <form className="flex flex-col gap-3 sm:flex-row" onSubmit={addTodoHandler}>
+      <label className="sr-only" htmlFor="todo-input">
+        New todo
+      </label>
+      <input
+        id="todo-input"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        type="text"
+        placeholder="Write Todo..."
+        className="min-h-[48px] flex-1 rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200"
+      />
+      <button
+        type="submit"
+        className="min-h-[48px] rounded-2xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
+      >
+        Add
+      </button>
+    </form>
+  );
 }
+
+export default AddTodo; 
