@@ -39,7 +39,35 @@ class Service{
     }
 
     async updatePost(slug, {title,  content, featuredImage, status}) {
+        try {
+            return await this.databases.updateDocument(
+                config.appWriteDatabaseID,
+                config.appWriteCollectionID,
+                slug,
+                {
+                    title,
+                    content,
+                    featuredImage,
+                    status
+                }
+            )
+        } catch (error) {
+            console.log("Appwrite service :: Update Post :: error", error )
+        }
+    }
 
+    async deletePost (slug) {
+        try {
+            return await this.databases.deleteDocument(
+                config.appWriteDatabaseID,
+                config.appWriteCollectionID,
+                {
+                    slug
+                }
+            )
+        } catch (error) {
+            console.log("Appwrite Service :: deletePost  :: error", error)
+        }
     }
 
 }
